@@ -260,46 +260,7 @@ canvas { display: block; width: 100%; border-radius: 10px; }
 .step-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #eef5f9; margin-bottom: 7px; }
 .step-desc { color: var(--muted); font-size: 12px; line-height: 1.6; }
 
-/* ── SCRIPT ── */
-.script-toggle {
-  background: rgba(126,200,227,.07);
-  border: 1px solid rgba(126,200,227,.28);
-  color: var(--ice);
-  padding: 12px 22px; border-radius: 10px;
-  cursor: pointer;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .07em;
-  display: flex; align-items: center; gap: 10px;
-  transition: all .2s;
-}
-.script-toggle:hover { background: rgba(126,200,227,.13); }
 
-.script-panel {
-  background: linear-gradient(135deg, #0c1420, #0f1a2c);
-  border: 1px solid rgba(126,200,227,.14);
-  border-radius: 16px; padding: 28px;
-  margin-top: 16px; display: none;
-}
-.script-panel.open { display: block; }
-.script-h { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: #eef5f9; margin-bottom: 24px; }
-.script-h small { color: var(--muted); font-size: 14px; }
-.script-section { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(126,200,227,.07); }
-.script-section:last-child { border-bottom: none; margin-bottom: 0; }
-.script-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.script-sec-title { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #eef5f9; }
-.script-time { background: rgba(126,200,227,.1); border: 1px solid rgba(126,200,227,.25); color: var(--ice); font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 20px; }
-.stage-dir { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--amber); font-style: italic; margin-bottom: 8px; }
-.script-text { color: var(--soft); font-size: 13px; line-height: 1.8; font-style: italic; }
-
-/* ── PRESENTER TIPS ── */
-.tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 20px; }
-.tip-card {
-  background: rgba(126,200,227,.04);
-  border: 1px solid rgba(126,200,227,.1);
-  border-radius: 12px; padding: 16px 18px;
-}
-.tip-icon { font-size: 20px; margin-bottom: 8px; }
-.tip-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ice); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
-.tip-body { font-size: 12px; color: var(--soft); line-height: 1.6; }
 
 /* ── FOOTER ── */
 footer {
@@ -489,66 +450,6 @@ footer a:hover { opacity: 1; }
     </div>
   </div>
 
-  <!-- ── PRESENTER SCRIPT ── -->
-  <button class="script-toggle" id="scriptToggle">
-    <span id="sArrow">▼</span>
-    <span id="sLabel">SHOW 60-SECOND PRESENTER SCRIPT</span>
-  </button>
-  <div class="script-panel" id="scriptPanel">
-    <div class="script-h">📽 Video Presenter Script <small>— ~60 seconds</small></div>
-
-    <div class="script-section">
-      <div class="script-meta"><div class="script-sec-title">① Introduction</div><span class="script-time">0–14s</span></div>
-      <div class="stage-dir">[Gesture toward the title and ship graphic]</div>
-      <div class="script-text">"April 1912. The Titanic sank, and 1,500 people lost their lives. But within the passenger data lies a clear pattern — and machine learning can find it. This is a Logistic Regression model that predicts, with remarkable accuracy, who survived and why."</div>
-    </div>
-
-    <div class="script-section">
-      <div class="script-meta"><div class="script-sec-title">② The Data & Features</div><span class="script-time">14–30s</span></div>
-      <div class="stage-dir">[Point to the Feature Engineering cards]</div>
-      <div class="script-text">"We didn't just use raw data. We engineered new clues — like extracting each passenger's title to infer their social status, and creating a Family Size feature to capture whether travelling with others helped or hurt your odds."</div>
-    </div>
-
-    <div class="script-section">
-      <div class="script-meta"><div class="script-sec-title">③ The 97% Accuracy — & The Twist</div><span class="script-time">30–48s</span></div>
-      <div class="stage-dir">[Point to the accuracy card, then gesture to the red leakage box]</div>
-      <div class="script-text">"The model scores 97.33% accuracy — impressive. But here's the detective moment: two features in the data tell us whether a passenger got on a lifeboat or had their body recovered. That's not prediction — that's reading the ending. Remove those, and the model becomes a genuine forecaster."</div>
-    </div>
-
-    <div class="script-section">
-      <div class="script-meta"><div class="script-sec-title">④ Visual Insights</div><span class="script-time">48–60s</span></div>
-      <div class="stage-dir">[Switch to the charts tab, gesture at the grouped bars]</div>
-      <div class="script-text">"The data tells a human story. Women in 1st class survived at 97%. Men in 3rd class — just 14%. Children had better odds. The numbers confirm what history already told us: survival on the Titanic was shaped by gender, class, and fortune."</div>
-    </div>
-
-    <!-- Presenter Tips -->
-    <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(126,200,227,.08);">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:17px; color:#eef5f9; margin-bottom:16px;">🎙 Presenter Guidelines</div>
-      <div class="tips-grid">
-        <div class="tip-card">
-          <div class="tip-icon">⏱</div>
-          <div class="tip-title">Pacing</div>
-          <div class="tip-body">Speak slowly through the Data Leakage section. Pause after "reading the ending" — let the concept land before moving on.</div>
-        </div>
-        <div class="tip-card">
-          <div class="tip-icon">👆</div>
-          <div class="tip-title">Screen Interaction</div>
-          <div class="tip-body">When transitioning from the summary to metrics, hover over the accuracy card first, then pan down to the red leakage box.</div>
-        </div>
-        <div class="tip-card">
-          <div class="tip-icon">🎭</div>
-          <div class="tip-title">Tone on Leakage</div>
-          <div class="tip-body">Frame it as a discovery, not a mistake. "And here's where it gets interesting…" signals curiosity, not failure.</div>
-        </div>
-        <div class="tip-card">
-          <div class="tip-icon">📊</div>
-          <div class="tip-title">Chart Narration</div>
-          <div class="tip-body">Point to the tallest green bar (1st class female) and shortest blue bar (3rd class male) — the visual contrast is instant.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer>
     <span>TITANIC SURVIVAL PREDICTION · LOGISTIC REGRESSION · SCIKIT-LEARN · PYTHON</span>
     <span>
@@ -719,13 +620,7 @@ document.querySelectorAll('.tab').forEach(btn => {
   });
 });
 
-/* ── Script toggle ────────────────────────────────────────── */
-document.getElementById('scriptToggle').addEventListener('click', () => {
-  const p = document.getElementById('scriptPanel');
-  const open = p.classList.toggle('open');
-  document.getElementById('sArrow').textContent = open ? '▲' : '▼';
-  document.getElementById('sLabel').textContent = (open ? 'HIDE' : 'SHOW') + ' 60-SECOND PRESENTER SCRIPT';
-});
+
 
 /* ── Count-up ─────────────────────────────────────────────── */
 function countUp(el, target, suffix, dur = 1600) {
